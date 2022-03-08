@@ -1,3 +1,4 @@
+<!--This is a test file, testing out some required functions-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,16 @@
 </head>
 
 <body>
+    Hello
+    The time right now is
+
+    <p>Date/Time:</p>
+    <p id="datetime"></p>
+
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    </script>
 
 </body>
 
