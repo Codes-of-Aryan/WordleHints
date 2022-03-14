@@ -16,5 +16,32 @@ var answer = function () {
     return textMultiple;
 }
 
+$.getJSON("https://api.dictionaryapi.dev/api/v2/entries/en/" + possibleSolutions[index], function (data) {
+    console.log(data);
+
+    var def = data[0].meanings[0].definitions[0].definition;
+    var ex = data[0].meanings[0].definitions[0].example;
+
+
+    if (typeof def == 'undefined') {
+        ex = "Uh Oh, Looks like a Definition for this Word is not Available :(";
+    }
+
+    if (typeof ex == 'undefined') {
+        ex = "Uh Oh, Looks like an Example for this Word is not Available :(";
+    } else {
+        ex = ex.replace(possibleSolutions[index], "XXXXX");
+    }
+
+
+    $(".define").append(def);
+    $(".example").append(ex);
+
+
+    console.log(def);
+    console.log(ex);
+
+});
+
 
 
