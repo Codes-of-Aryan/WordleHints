@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    <script type="text/javascript" src="answer.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,21 @@
     The time right now is
 
     <p>Date/Time:</p>
-    <p id="datetime"></p>
+    <!-- <p id="datetime"></p> -->
+    <!-- <p id="index"></p> -->
+    <p id="answer"></p>
 
     <script>
-        var dt = new Date();
-        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+        document.getElementById("answer").innerHTML = answer().today; 
     </script>
+
+    <!-- <script> 
+        var dt = new Date();
+        var index = 10;
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+        document.getElementById("index").innerHTML = index;
+
+    </script> -->
 
 </body>
 
