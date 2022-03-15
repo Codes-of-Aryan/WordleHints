@@ -43,5 +43,7 @@ $.getJSON("https://api.dictionaryapi.dev/api/v2/entries/en/" + possibleSolutions
 
 });
 
+const tile = document.querySelector('body .tile_container');
+
 
 
