@@ -3,12 +3,247 @@
 <head>
     <script type="text/javascript" src="message.js"></script>
 </head>
+<style>
+    /* entire container, keeps perspective */
+    * {
+        background-color: black;
+    }
+
+    body {
+        /* height: 90vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .animate {
+        display: flex;
+        /* height: 90vh; */
+        width: 120vh;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flip-container,
+    .flip-container2 {
+        perspective: 1000;
+
+    }
+
+    /* flip the pane when hovered */
+    .flip-container:hover .flipper,
+    .flip-container.hover .flipper,
+    .flip-container2:hover .flipper2,
+    .flip-container2.hover .flipper2 {
+        transform: rotateX(180deg);
+
+    }
+
+
+    .front,
+    .back,
+    .flip-container,
+    .front2,
+    .back2,
+    .flip-container2 {
+        width: 100px;
+        height: 100px;
+        margin: 7px;
+    }
+
+    /* flip speed goes here */
+    .flipper,
+    .flipper2 {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        transform-origin: 100% 55px;
+        position: relative;
+    }
+
+    /* hide back of pane during swap */
+    .front,
+    .back,
+    .front2,
+    .back2 {
+        border-style: solid;
+        backface-visibility: hidden;
+        box-sizing: border-box;
+        position: absolute;
+        align-items: center;
+        border: 2px solid #3a3a3c;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        display: flex;
+        margin: 50 px;
+        color: cornSilk;
+        text-align: center;
+        font: 3em/240px 'Helvetica Neue', Helvetica, sans-serif;
+        /* box-shadow: -5px 5px 5px #aaa; */
+    }
+
+    /* front pane, placed above back */
+    .front,
+    .front2 {
+        z-index: 2;
+        /* for firefox 31 */
+        transform: rotateX(0deg);
+
+    }
+
+    /* back, initially hidden pane */
+    .back,
+    .back2 {
+        transform: rotateX(180deg);
+        background: green;
+    }
+
+    .tile {
+        text-align: center;
+        border-style: solid;
+        border: 2px solid #3a3a3c;
+        width: 100px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 5px;
+        box-sizing: border-box;
+        backface-visibility: hidden;
+    }
+
+    .tile.flip:hover {
+        animation: 0.5s linear flipping;
+        background-color: goldenrod;
+    }
+
+
+
+    @keyframes flipping {
+        0% {
+            transform: rotateX(0deg);
+        }
+
+        50% {
+            transform: rotateX(90deg);
+        }
+
+        100% {
+            transform: rotateX(0deg);
+
+        }
+    }
+
+
+
+    /* CSS */
+    .button-82-pushable {
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        transition: filter 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-82-shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: hsl(0deg 0% 0% / 0.25);
+        will-change: transform;
+        transform: translateY(2px);
+        transition:
+            transform 600ms cubic-bezier(.3, .7, .4, 1);
+    }
+
+    .button-82-edge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        /* background: linear-gradient(to left, 
+                hsl(340deg 100% 16%) 0%,
+                hsl(340deg 100% 32%) 8%,
+                hsl(340deg 100% 32%) 92%,
+                hsl(340deg 100% 16%) 100%); */
+    }
+
+    .button-82-front {
+        display: block;
+        position: relative;
+        padding: 12px 27px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        color: white;
+        background: rgb(136, 138, 7);
+        will-change: transform;
+        transform: translateY(-4px);
+        transition:
+            transform 600ms cubic-bezier(.3, .7, .4, 1);
+    }
+
+    @media (min-width: 768px) {
+        .button-82-front {
+            font-size: 1.25rem;
+            padding: 12px 42px;
+        }
+    }
+
+    .button-82-pushable:hover {
+        filter: brightness(110%);
+    }
+
+    .button-82-pushable:hover .button-82-front {
+        transform: translateY(-6px);
+        transition:
+            transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+    }
+
+    .button-82-pushable:active .button-82-front {
+        transform: translateY(-2px);
+        transition: transform 34ms;
+    }
+
+    .button-82-pushable:hover .button-82-shadow {
+        transform: translateY(4px);
+        transition:
+            transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+    }
+
+    .button-82-pushable:active .button-82-shadow {
+        transform: translateY(1px);
+        transition: transform 34ms;
+    }
+
+    .button-82-pushable:focus:not(:focus-visible) {
+        outline: none;
+    }
+</style>
 
 <body>
     <p>Welcome to JavaScript</p>
 
     <p id="index"></p>
     <p id="txt"></p>
+    <button class="button-82-pushable" role="button">
+        <span class="button-82-shadow">
+
+        </span><span class="button-82-edge">
+
+        </span><span class="button-82-front text">Button 82 </span></button>
 
     <script>
         var index = "BSDK";
@@ -16,10 +251,41 @@
         document.getElementById("txt").innerHTML = simple().text1;
     </script>
 
+    <div class="animate">
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+                    <!-- front content -->
+                    ?
+                </div>
+                <div class="back">
+                    <!-- back content -->
+                    T
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flip-container2" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper2">
+                <div class="front2">
+                    <!-- front content -->
+                    ?
+                </div>
+                <div class="back2">
+                    <!-- back content -->
+                    T
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- <form> 
         <input type="button" value="click" onclick="msg()" />
     </form> -->
+
+    <div class="tile flip"></div>
 </body>
 
 </html>

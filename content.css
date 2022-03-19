@@ -44,5 +44,125 @@
     display: flex;
     margin: 5px;
     box-sizing: border-box;
+    backface-visibility: hidden;
    
+}
+
+.animate {
+    display: flex;
+    /* height: 90vh; */
+    width: 120vh;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-container,
+.flip-container2,
+.flip-container3,
+.flip-container4,
+.flip-container5 {
+    perspective: 1000;
+
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper,
+.flip-container2:hover .flipper2,
+.flip-container2.hover .flipper2, 
+.flip-container3:hover .flipper3,
+.flip-container3.hover .flipper3,
+.flip-container4:hover .flipper4,
+.flip-container4.hover .flipper4,
+.flip-container5:hover .flipper5,
+.flip-container5.hover .flipper5{
+    transform: rotateX(180deg);
+
+}
+
+
+.front,
+.back,
+.flip-container,
+.front2,
+.back2,
+.flip-container2,
+.front3,
+.back3,
+.flip-container3,
+.front4,
+.back4,
+.flip-container4,
+.front5,
+.back5,
+.flip-container5 {
+    width: 100px;
+    height: 100px;
+    margin: 7px;
+}
+
+/* flip speed goes here */
+.flipper,
+.flipper2,
+.flipper3,
+.flipper4,
+.flipper5
+ {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    transform-origin: 100% 55px;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back,
+.front2,
+.back2,
+.front3,
+.back3,
+.front4,
+.back4,
+.front5,
+.back5 {
+    border-style: solid;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    align-items: center;
+    border: 2px solid #3a3a3c;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    display: flex;
+    margin: 50 px;
+    color: cornSilk;
+    text-align: center;
+    font: 'Helvetica Neue', Helvetica, sans-serif;
+    /* box-shadow: -5px 5px 5px #aaa;  */
+}
+
+/* front pane, placed above back */
+.front,
+.front2,
+.front3,
+.front4, 
+.front5 {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateX(0deg);
+
+}
+
+/* back, initially hidden pane */
+.back,
+.back2,
+.back3,
+.back4,
+.back5 {
+    transform: rotateX(180deg);
+    background: green;
+    font-size: 32px;
 }

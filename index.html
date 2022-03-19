@@ -18,13 +18,91 @@
             <h1>WORDLE HINTS</h1>
         </div>
 
-        <div class="tile_container">
+
+        <!-- <div class="tile_container"> 
+
             <div class="tile"></div>
             <div class="tile"></div>
             <div class="tile"></div>
             <div class="tile"></div>
             <div class="tile"></div>
+
+        </div> -->
+
+        <div class="animate">
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <!-- front content -->
+                        ?
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        T
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flip-container2" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper2">
+                    <div class="front2">
+
+                        ?
+                    </div>
+                    <div class="back2">
+
+                        T
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flip-container3" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper3">
+                    <div class="front3">
+
+                        ?
+                    </div>
+                    <div class="back3">
+
+                        T
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="flip-container4" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper4">
+                    <div class="front4">
+
+                        ?
+                    </div>
+                    <div class="back4">
+
+                        T
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flip-container5" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper5">
+                    <div class="front5">
+                        <!-- front content -->
+                        ?
+                    </div>
+                    <div class="back5">
+                        <!-- back content -->
+                        T
+                    </div>
+
+                </div>
+            </div>
         </div>
+
+
         <p id="answer"></p>
 
         <script>
@@ -35,12 +113,9 @@
             <p class="define"></p>
             <p class="example"></p>
         </div>
+
     </div>
 
-    <script>
-        var dt = new Date();
-        document.getElementById("datetime").innerHTML = dt.toLocaleString();
-    </script>
 
 </body>
 
