@@ -4,14 +4,19 @@ const possibleSolutions = ["cigar", "rebut", "sissy", "humph", "awake", "blush",
 let today = new Date().getTime() - 18000000;
 let firstDay = new Date(2021, 5, 19, 0, 0, 0, 0).getTime();
 let index = Math.floor((today - firstDay) / 864e5)
-index += 2;
+index += 5;
 
 
 var answer = function () {
     var textMultiple = {
         today: possibleSolutions[index],
         yesterday: possibleSolutions[index - 1],
-        tomorrow: possibleSolutions[index + 1]
+        tomorrow: possibleSolutions[index + 1],
+        letter1: possibleSolutions[index][0],
+        letter2: possibleSolutions[index][1],
+        letter3: possibleSolutions[index][2],
+        letter4: possibleSolutions[index][3],
+        letter5: possibleSolutions[index][4]
     };
     return textMultiple;
 }
@@ -22,9 +27,10 @@ $.getJSON("https://api.dictionaryapi.dev/api/v2/entries/en/" + possibleSolutions
     var def = data[0].meanings[0].definitions[0].definition;
     var ex = data[0].meanings[0].definitions[0].example;
 
+    def = def.replaceAll(possibleSolutions[index], "XXXXX");
 
     if (typeof def == 'undefined') {
-        ex = "Uh Oh, Looks like a Definition for this Word is not Available :(";
+        def = "Uh Oh, Looks like a Definition for this Word is not Available :(";
     }
 
     if (typeof ex == 'undefined') {
@@ -45,5 +51,34 @@ $.getJSON("https://api.dictionaryapi.dev/api/v2/entries/en/" + possibleSolutions
 
 const tile = document.querySelector('body .tile_container');
 
+function defClick() {
+    var x = document.getElementById("buttonTextDef");
+    var y = document.getElementById("buttonTextEx");
+
+    if (y.style.display = "block") { //if example text is active, hide it 
+        y.style.display = "none";
+    }
+
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function exClick() {
+    var x = document.getElementById("buttonTextDef");
+    var y = document.getElementById("buttonTextEx");
+
+    if (x.style.display = "block") { //if definition text is active, hide it 
+        x.style.display = "none";
+    }
+
+    if (y.style.display === "none") {
+        y.style.display = "block";
+    } else {
+        y.style.display = "none";
+    }
+}
 
 

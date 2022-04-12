@@ -1,4 +1,3 @@
-<!--This is a test file, testing out some required functions-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,17 +17,6 @@
             <h1>WORDLE HINTS</h1>
         </div>
 
-
-        <!-- <div class="tile_container"> 
-
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-            <div class="tile"></div>
-
-        </div> -->
-
         <div class="animate">
             <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
@@ -38,7 +26,7 @@
                     </div>
                     <div class="back">
                         <!-- back content -->
-                        T
+                        <span id="letter1" style="background-color:green;"></span>
                     </div>
 
                 </div>
@@ -52,7 +40,7 @@
                     </div>
                     <div class="back2">
 
-                        T
+                        <span id="letter2" style="background-color:green;"></span>
                     </div>
 
                 </div>
@@ -66,7 +54,7 @@
                     </div>
                     <div class="back3">
 
-                        T
+                        <span id="letter3" style="background-color:green;"></span>
                     </div>
 
                 </div>
@@ -81,7 +69,8 @@
                     </div>
                     <div class="back4">
 
-                        T
+                        <span id="letter4" style="background-color:green;"></span>
+
                     </div>
 
                 </div>
@@ -95,25 +84,57 @@
                     </div>
                     <div class="back5">
                         <!-- back content -->
-                        T
+                        <span id="letter5" style="background-color:green;"></span>
                     </div>
 
                 </div>
             </div>
         </div>
 
-
-        <p id="answer"></p>
-
         <script>
-            document.getElementById("answer").innerHTML = answer().today; 
+            document.getElementById("letter1").innerHTML = answer().letter1.toUpperCase();
+            document.getElementById("letter2").innerHTML = answer().letter2.toUpperCase();
+            document.getElementById("letter3").innerHTML = answer().letter3.toUpperCase();
+            document.getElementById("letter4").innerHTML = answer().letter4.toUpperCase();
+            document.getElementById("letter5").innerHTML = answer().letter5.toUpperCase();
         </script>
 
-        <div class="define-container">
-            <p class="define"></p>
-            <p class="example"></p>
+        <div class="buttons">
+            <div class="defineButton">
+                <button class="button-82-pushable" role="button" onclick="defClick()">
+                    <span class="button-82-shadow">
+
+                    </span><span class="button-82-edge">
+
+                    </span><span class="button-82-front text">DEFINITION</span></button>
+            </div>
+            <div class="exampleButton">
+                <button class="button-82-pushable" role="button" onclick="exClick()">
+                    <span class="button-82-shadow">
+
+                    </span><span class="button-82-edge">
+
+                    </span><span class="button-82-front text">EXAMPLE</span>
+            </div>
         </div>
 
+        <div class="define-container">
+
+            <div id="buttonTextDef" style="display: none;" class="define">
+            </div>
+
+            <div id="buttonTextEx" style="display: none;" class="example">
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <h5>Made with &lt3 by Aryan Agrawal
+                <a href="https://github.com/Codes-of-Aryan" target="_blank">
+                    <img src="github_icon_.png" width="80" height="40" style="vertical-align: middle;">
+                </a>
+            </h5>
+        </div>
     </div>
 
 
