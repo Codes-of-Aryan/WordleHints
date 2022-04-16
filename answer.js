@@ -4,7 +4,7 @@ const possibleSolutions = ["cigar", "rebut", "sissy", "humph", "awake", "blush",
 let today = new Date().getTime() - 18000000;
 let firstDay = new Date(2021, 5, 19, 0, 0, 0, 0).getTime();
 let index = Math.floor((today - firstDay) / 864e5)
-index += 5;
+index += 6;
 
 
 var answer = function () {
